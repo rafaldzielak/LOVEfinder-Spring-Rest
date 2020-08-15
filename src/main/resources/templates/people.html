@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html xmlns:th="http:/www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+<head>
+	<meta charset="UTF-8">
+	<title>LOVEfinder | Find Your True Love</title>
+	<link rel="stylesheet" href="css/style.css">
+	<script src="https://kit.fontawesome.com/cff99a00c0.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+	<nav>
+		<div class="upper-flex">
+
+			<form action="#" id="delete-one-form" sec:authorize="hasRole('ADMIN')"
+				onSubmit="return confirm('Are you sure you wish to delete?');">
+				<input type="hidden" name="startid" value="" class="delete-one" />
+
+				<input type="submit" value="Delete This User" class="btn-light alert-confirm">
+			</form>
+
+			<form action="/deleteall" sec:authorize="hasRole('ADMIN')"
+				onSubmit="return confirm('Are you sure you wish to delete?');">
+				<button class="btn-light alert-confirm" type="submit"> Delete All Users
+				</button>
+			</form>
+
+			<form action="/addpersonform" sec:authorize="hasRole('ADMIN')">
+				<button class="btn-light" type="submit"> Add User </button>
+			</form>
+
+			<a href="login" class="btn-light" sec:authorize="!isAuthenticated()">Log In</a>
+
+			<button class="btn-light show-liked" sec:authorize="isAuthenticated()"> Show Liked </button>
+
+		</div>
+	</nav>
+
+	<div class="container">
+		<div class="flex-rewind">
+			<p id="previous-btn"><i class="fas fa-chevron-left fa-5x"></i></p>
+
+			<div class="inside">
+				<h1 class="header"><i class="fas fa-heartbeat"></i> LOVEfinder <i class="fas fa-heartbeat"></i></h1>
+				<div class="img-relative">
+					<img id="img-main" src="https://source.unsplash.com/collection/1606521/400x400" alt="">
+					<div>
+						<i class="far fa-heart heart-icon fa-2x"></i>
+					</div>
+				</div>
+
+
+				<p id="person">Use Arrows to Navigate</p>
+			</div>
+			<p id="next-btn"><i class="fas fa-chevron-right fa-5x"></i></p>
+		</div>
+		<footer id="bottom">
+			<i class="fab fa-facebook-f fa-2x icon-bottom"></i>
+			<i class="fab fa-twitter fa-2x icon-bottom"></i>
+			<i class="fab fa-instagram fa-2x icon-bottom"></i>
+			<i class="fab fa-pinterest fa-2x icon-bottom"></i>
+
+		</footer>
+	</div>
+
+	<!-- <script type="text/javascript" th:inline="javascript" th:src="@{js/app.js}"> -->
+	<script type="text/javascript" th:inline="javascript" th:src="@{/js/ui.js}"> </script>
+	<script type="text/javascript" th:inline="javascript" th:src="@{/js/person.js}"> </script>
+	<script th:inline="javascript" type="text/javascript">
+		let i = parseInt("[[${startid}]]") - 1;
+	</script>
+	<script type="text/javascript" th:inline="javascript" th:src="@{/js/app.js}"> </script>
+
+</body>
+
+</html>
