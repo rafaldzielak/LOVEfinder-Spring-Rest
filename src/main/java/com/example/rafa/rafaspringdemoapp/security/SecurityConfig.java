@@ -38,11 +38,4 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 		logout().permitAll();
 	}
 
-	
-
-//	@Bean
-//	public PasswordEncoder getPasswordEncoder() {
-//		return new BCryptPasswordEncoder();
-//	}
-
 }
