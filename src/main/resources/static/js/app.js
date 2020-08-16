@@ -15,12 +15,14 @@ ui.getAllPeople();
 
 document.onkeydown = ui.checkKey;
 document.getElementById("next-btn").addEventListener("click", ui.checkHeart);
-document.getElementById("previous-btn").addEventListener("click", ui.checkHeart);
-
+document
+  .getElementById("previous-btn")
+  .addEventListener("click", ui.checkHeart);
 
 document.getElementById("next-btn").addEventListener("click", nextPerson);
-document.getElementById("previous-btn").addEventListener("click", previousPerson);
-
+document
+  .getElementById("previous-btn")
+  .addEventListener("click", previousPerson);
 
 function previousPerson() {
   ui.displayPerson(false);
@@ -39,8 +41,7 @@ formDeleteOne.addEventListener("click", () => {
   console.log(formDeleteOne.action);
 });
 
-
-showLiked.addEventListener("click", () => {
+showLiked.addEventListener("click", (e) => {
   if (!showLikedOnly) {
     showLikedOnly = true;
     showLiked.textContent = "Show All";
@@ -49,8 +50,8 @@ showLiked.addEventListener("click", () => {
     showLiked.textContent = "Show Liked";
   }
   nextPerson();
+  e.preventDefault();
 });
-
 
 heart.addEventListener("click", ui.changeHeart);
 console.log("heart");

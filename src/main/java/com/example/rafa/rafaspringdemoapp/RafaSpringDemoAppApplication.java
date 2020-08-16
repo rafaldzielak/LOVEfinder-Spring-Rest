@@ -18,10 +18,11 @@ public class RafaSpringDemoAppApplication {
 	@Bean
 	public String addPerson(PersonCrudRepository repo){
 		for (int i = 0; i < 10; i++) {
-			Person man = new Person("Jan" + i, "Dzban" + i, "https://randomuser.me/api/portraits/men/" + i + ".jpg", "male");
-			Person woman = new Person("Janina" + i, "Dzbanica" + i, "https://randomuser.me/api/portraits/women/" + i + ".jpg", "female");
+			Person man = new Person("Jan" + i, "Dzban" + i, "https://robohash.org/male" + i + ".jpg", "male");
+			Person woman = new Person("Janina" + i, "Dzbanica" + i, "https://robohash.org/female" + i + ".jpg", "female");
 			repo.save(man);
 			repo.save(woman);
+			
 		}
 		
 		ArrayList<Person> people = new ArrayList<>();

@@ -30,9 +30,9 @@
 			</form>
 
 			<a href="login" class="btn-light" sec:authorize="!isAuthenticated()">Log In</a>
-
-			<button class="btn-light show-liked" sec:authorize="isAuthenticated()"> Show Liked </button>
-
+			<form>
+				<button class="btn-light show-liked" sec:authorize="isAuthenticated()"> Show Liked </button>
+			</form>
 		</div>
 	</nav>
 
